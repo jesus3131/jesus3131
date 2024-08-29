@@ -1,0 +1,335 @@
+/* Estilos globales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f5f6;
+    color: #140202;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Para evitar scroll horizontal no deseado */
+}
+
+/* Transiciones globales */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #101010;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: #050505 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-link img {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+/* Hover en enlaces de la barra de navegación */
+.nav-link:hover {
+    color: #e828ef !important;
+}
+
+/* Hover en íconos */
+.nav-link:hover img {
+    transform: rotate(20deg);
+    opacity: 1;
+}
+
+/* Estilo para encabezados */
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #101010;
+    color: #222020;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: lightSweep 4s infinite;
+}
+
+@keyframes lightSweep {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Contenedor de productos */
+.container {
+    margin-top: 80px; /* Ajustado para dejar espacio debajo de la barra de navegación */
+}
+
+/* Grid de productos */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+/* Tarjetas de producto */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #ffffff;
+    width: calc(33.333% - 20px); /* Tres tarjetas por fila con espacio entre ellas */
+    max-width: 300px; /* Ajusta el tamaño máximo de la tarjeta */
+    height: auto; /* Ajusta la altura automática para evitar distorsión */
+    min-height: 400px; /* Ajusta la altura mínima de la tarjeta */
+}
+
+/* Contenedor de imagen y cuerpo de la tarjeta */
+.card-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    display: block;
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between; /* Distribuye el espacio entre título, descripción y el espacio reservado */
+}
+
+.card-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9em;
+    color: #100f0f;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 40px; /* Limita la altura de la descripción */
+}
+
+/* Footer de tarjeta */
+.card-footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Asegura que el footer no se reduzca */
+}
+
+/* Hover en tarjetas de producto */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #2600ff;
+    border-color: #00ffd5;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+    display: inline-flex; /* Alinea los botones correctamente */
+    justify-content: center; /* Centra el texto del botón */
+}
+
+.btn-primary:hover {
+    background-color: #f93f6d;
+    border-color: #00408b;
+    transform: scale(1.05);
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+/* Ajustes en dispositivos móviles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .row {
+        gap: 10px;
+    }
+
+    .card {
+        width: calc(50% - 10px); /* Dos tarjetas por fila con espacio entre ellas */
+    }
+}
+
+/* Estilos para formularios */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+form button:active {
+    transform: scale(0.95);
+}
+
+form::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo personalizado para el carrusel */
+.carousel {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.carousel-inner img {
+    object-fit: cover;
+    height: 450px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+    animation: fadeIn 1.5s ease;
+}
+
+.carousel-item {
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Íconos de redes sociales en el footer */
+.social-icons a {
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.social-icons img {
+    display: inline-block;
+    vertical-align: middle;
+}
